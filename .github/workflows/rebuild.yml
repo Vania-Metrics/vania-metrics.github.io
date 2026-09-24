@@ -1,0 +1,21 @@
+# A CI run just recorded its results on this branch, which holds no site: ask the deploy workflow
+# of main to rebuild https://vania-metrics.github.io with them. A dispatch made with the workflow
+# token does start the target workflow, unlike a push.
+name: rebuild
+
+on:
+  push:
+    branches: [data]
+
+permissions:
+  actions: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run deploy.yml --ref main
