@@ -13,7 +13,8 @@ Built with VitePress from two branches:
   (`manifest.json`) and what its sources declare (`catalog.json`: metrics, configuration keys,
   description). Nobody edits it by hand.
 
-Every push to either branch rebuilds the site and publishes it on GitHub Pages (`deploy.yml`).
+Every push to `main`, and every push to `data` through its `rebuild.yml`, rebuilds the site and
+publishes it on GitHub Pages (`deploy.yml`).
 
 ```sh
 pnpm install

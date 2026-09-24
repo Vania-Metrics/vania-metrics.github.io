@@ -1,10 +1,11 @@
 # Builds the site and publishes it on GitHub Pages: when its sources change (main), and every time
-# a repository's CI records a run (the data branch, written by Vania-Metrics/.github status.yml).
+# a repository's CI records a run on the data branch (Vania-Metrics/.github status.yml), whose own
+# workflow, rebuild.yml, dispatches this one.
 name: deploy
 
 on:
   push:
-    branches: [main, data]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
