@@ -1,0 +1,22 @@
+{
+  "metrics": [
+    {
+      "name": "mc_nova_tile_entities",
+      "type": "gauge",
+      "help": "Nova machines placed, per world. These are what consume tick time — a rising number explains a rising MSPT.",
+      "labels": [
+        "world"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/nova/NovaCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "NovaCollector",
+    "name": "nova",
+    "source": "Nova",
+    "background": true,
+    "interval": 30,
+    "text": "Nova — the machine census.\n\nWhat its API allows, and what it doesn't: Nova's registries (`NovaBlockRegistry`, `NovaItemRegistry`) only do lookup by identifier — they enumerate nothing, so there's no \"how many custom blocks exist\" to pull from them. The `TileEntityManager`, though, enumerates. It's the only door, and it gives what actually matters: the number of machines placed, the ones consuming tick time.\n\nBackground mode, for good reason: `getTileEntities(World)` builds a list. On a server covered in machines, doing that on every scrape would make the exporter responsible for the lag it measures."
+  }
+}

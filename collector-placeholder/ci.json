@@ -1,0 +1,20 @@
+{
+  "repo": "collector-placeholder",
+  "workflow": "ci",
+  "run_id": 35981347300,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-placeholder/actions/runs/35981347300",
+  "event": "push",
+  "branch": "main",
+  "sha": "9cf68eab729fe528b5ebb28c8f051f9826d9f43f",
+  "result": "success",
+  "finished": "2026-09-24T09:32:10Z",
+  "cells": {
+    "bukkit": "passed",
+    "folia": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed"
+  },
+  "runtime": "java21"
+}

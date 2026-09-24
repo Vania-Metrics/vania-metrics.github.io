@@ -1,0 +1,255 @@
+{
+  "metrics": [
+    {
+      "name": "mc_crate_deliveries_total",
+      "type": "counter",
+      "help": "Item DELIVERIES, not items delivered: eight keys given at once count as one. \"source\" is key_grant, crate_grant or reward_grant. Only PHYSICAL keys go through here — granting a virtual key fires no event and only shows up as a jump in mc_crate_player_keys.",
+      "labels": [
+        "source"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_keys",
+      "type": "gauge",
+      "help": "Keys declared.",
+      "labels": [
+        "virtual"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_open_attempts_total",
+      "type": "counter",
+      "help": "Opens REQUESTED, whether they completed or not. Checks the invariant attempts = opens + failures; a gap means the plugin opened a crate without going through the normal path.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_open_cooldown_seconds",
+      "type": "gauge",
+      "help": "Delay imposed between two opens of the same crate.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_open_cost",
+      "type": "gauge",
+      "help": "Price of an open. \"currency\" is the configured cost engine, which leaves the door open to multiple currencies, as with the economy module.",
+      "labels": [
+        "crate",
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_open_failures_total",
+      "type": "counter",
+      "help": "Opens refused. \"reason\" is INFERRED from the player's state at the time of the request, since the plugin only returns a translated message: cooldown, no_key, money, cancelled, other.",
+      "labels": [
+        "crate",
+        "reason"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_opens_total",
+      "type": "counter",
+      "help": "Opens completed, across all players.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_placements_total",
+      "type": "counter",
+      "help": "Physical crates placed in the world.",
+      "labels": [
+        "crate",
+        "world"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_player_cooldown_seconds",
+      "type": "gauge",
+      "help": "Time REMAINING before a player can reopen a crate. Zero if they can open right away.",
+      "labels": [
+        "player",
+        "uuid",
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_player_keys",
+      "type": "gauge",
+      "help": "VIRTUAL keys in stock for a connected player. Physical keys are in their inventory and are not counted here.",
+      "labels": [
+        "player",
+        "uuid",
+        "key"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_player_opens",
+      "type": "gauge",
+      "help": "A player's opens EVER, by crate type. Persisted by the plugin: the only metric in this module that doesn't reset to zero on restart.",
+      "labels": [
+        "player",
+        "uuid",
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_player_opens_total",
+      "type": "counter",
+      "help": "Opens completed, per player and per crate. Counts SINCE THE EXPORTER STARTED; for the all-time total, see mc_crate_player_opens, which the plugin persists.",
+      "labels": [
+        "player",
+        "uuid",
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_player_reward_wins",
+      "type": "gauge",
+      "help": "How many times a player has won a given reward, ever. WITHOUT a \"crate\" label: the plugin indexes these wins by reward identifier ALONE, so two crates that both name a reward \"diamond\" share the counter. That's not a design choice, it's what the data allows.",
+      "labels": [
+        "player",
+        "uuid",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_previews_total",
+      "type": "counter",
+      "help": "Previews opened without opening the crate: interest that doesn't convert.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_reward_candidates",
+      "type": "gauge",
+      "help": "Rewards actually in play at the last draw. Lower than crate_rewards_configured when win limits or permissions removed rewards: this is what explains why a player can no longer win a reward they already got.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_reward_expected_ratio",
+      "type": "gauge",
+      "help": "EXPECTED probability of a reward, between 0 and 1, normalized BY US (weight / sum of weights). Describes the draw's configuration, not the effective odds: guaranteed rewards, win limits and permissions are applied on top of it.",
+      "labels": [
+        "crate",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_reward_required_keys",
+      "type": "gauge",
+      "help": "Keys required to be eligible for a reward. This is the ONLY notion of rarity the plugin has: there is no getRarity() in its API.",
+      "labels": [
+        "crate",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_reward_weight",
+      "type": "gauge",
+      "help": "Raw weight of a reward in the draw. This is NOT a percentage.",
+      "labels": [
+        "crate",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_reward_win_limit",
+      "type": "gauge",
+      "help": "Maximum number of times a reward can be won. NEGATIVE means unlimited: -1 is what the plugin returns, observed on its sample crates, not 0 as one might assume.",
+      "labels": [
+        "crate",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_rewards_configured",
+      "type": "gauge",
+      "help": "Rewards declared on a crate. The Lite edition caps this at 5: this gauge says when that cap is hit.",
+      "labels": [
+        "crate"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_rewards_total",
+      "type": "counter",
+      "help": "Rewards actually HANDED OUT. \"alternative\" distinguishes the consolation reward from the drawn one.",
+      "labels": [
+        "crate",
+        "reward",
+        "alternative"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_selective_confirms_total",
+      "type": "counter",
+      "help": "Choices confirmed in selective mode, where the player picks their reward.",
+      "labels": [
+        "crate",
+        "reward"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "name": "mc_crate_types",
+      "type": "gauge",
+      "help": "Crate types declared.",
+      "labels": [
+        "enabled"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    }
+  ],
+  "config": [
+    {
+      "key": "collector.crate.interval",
+      "type": "int",
+      "default": "30",
+      "env": "VANIA_METRICS_COLLECTOR_CRATE_INTERVAL",
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    },
+    {
+      "key": "collector.crate.player_reward_wins",
+      "type": "boolean",
+      "default": "true",
+      "env": "VANIA_METRICS_COLLECTOR_CRATE_PLAYER_REWARD_WINS",
+      "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
+    }
+  ],
+  "collector": {
+    "class": "CratesCollector",
+    "name": "crate",
+    "source": "PhoenixCrates",
+    "background": true,
+    "interval": null,
+    "text": "PhoenixCrates metrics — and above all: does the randomness keep its promises?\n\nThat's the one thing you can't see in-game. A player who opens a hundred crates can sense that the reward advertised at 2% never comes up, but can't prove it; neither can an admin. Two metrics settle it:\n\n<pre>`# OBSERVED probability over 30 days, against the CONFIGURED one sum by (crate,reward) (increase(mc_crate_rewards_total{alternative=\"false\"`[30d])) / ignoring(reward) group_left sum by (crate) (increase(mc_crate_rewards_total{alternative=\"false\"}[30d])) / mc_crate_reward_expected_ratio # 1.0 = matches, 0.5 = half as frequent as promised }</pre>\n\nThere is no way to measure the raw draw, which had to be learned the hard way on the server. This module originally declared a `reward_draws` counter fed by `CrateRewardSelectionEvent` — which never fires as its name suggests. The event fires BEFORE the draw, with the list of candidates and a `null` reward, to let a third-party plugin impose its own choice; only afterward, if nobody responded, does `selectByWeight` actually draw. So there's no draw outcome to listen for.\n\nThe fallback is `rewards_total` filtered on `alternative=\"false\"`: what gets handed out WITHOUT having been substituted. An acknowledged imprecision remains — win limits and permissions remove candidates before the draw, invisibly. Hence `crate_reward_candidates`, which says how many rewards were actually in play.\n\nTwo regimes live in one class. The counters are fed by events and cost nothing at scrape time: they're already current. The gauges — configuration and per-player state — require walking lists, hence `#isBackground()` being true. Both mechanics live here together because they describe the same object; splitting them would force sharing crate identifiers between two classes.\n\nAll handlers run at `MONITOR` and in O(1). PhoenixCrates' events fire on the main thread, in the call stack of the open itself — verified at the bytecode level. A handler that took a millisecond would take it out of the tick."
+  }
+}

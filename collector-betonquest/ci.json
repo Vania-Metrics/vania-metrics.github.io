@@ -1,0 +1,17 @@
+{
+  "repo": "collector-betonquest",
+  "workflow": "ci",
+  "run_id": 35981307085,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-betonquest/actions/runs/35981307085",
+  "event": "push",
+  "branch": "main",
+  "sha": "9be9047274569d4798cfcba8408c36d2cbe9a555",
+  "result": "success",
+  "finished": "2026-09-24T09:29:46Z",
+  "cells": {
+    "paper": "passed",
+    "purpur": "passed"
+  },
+  "runtime": "java21"
+}

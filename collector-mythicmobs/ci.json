@@ -1,0 +1,19 @@
+{
+  "repo": "collector-mythicmobs",
+  "workflow": "ci",
+  "run_id": 35981333865,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-mythicmobs/actions/runs/35981333865",
+  "event": "push",
+  "branch": "main",
+  "sha": "fbc87c4112a5fbcf726ecc7079fee7970afdcab7",
+  "result": "success",
+  "finished": "2026-09-24T09:32:10Z",
+  "cells": {
+    "folia": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed"
+  },
+  "runtime": "java21"
+}

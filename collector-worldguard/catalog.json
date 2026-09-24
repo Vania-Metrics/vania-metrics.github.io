@@ -1,0 +1,29 @@
+{
+  "metrics": [
+    {
+      "name": "mc_region_count",
+      "type": "gauge",
+      "help": "Declared protected regions, per world.",
+      "labels": [
+        "world"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/worldguard/WorldGuardCollector.java"
+    },
+    {
+      "name": "mc_region_pvp_denied_total",
+      "type": "counter",
+      "help": "Player-vs-player attacks denied by a region. A FRICTION counter: if it climbs, players are fighting where they can't.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/worldguard/WorldGuardCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "WorldGuardCollector",
+    "name": "region",
+    "source": "WorldGuard",
+    "background": true,
+    "interval": 60,
+    "text": "WorldGuard — protected regions, and what they deny.\n\nTwo kinds in one module, deliberately: region COUNT is state, polled; denied PvP is an event, counted. Splitting them would mean two jars for one plugin, which the \"one jar per plugin\" layout forbids.\n\nRegion count is polled in the background: `RegionManager.size()` is cheap, but it requires walking every world, and a region created ten seconds ago doesn't matter to the second."
+  }
+}

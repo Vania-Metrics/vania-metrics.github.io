@@ -1,0 +1,19 @@
+{
+  "repo": "collector-mvinventories",
+  "workflow": "ci",
+  "run_id": 35981327776,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-mvinventories/actions/runs/35981327776",
+  "event": "push",
+  "branch": "main",
+  "sha": "17946e891f50fe1c9a709eaac0b3d4be7fc98d0e",
+  "result": "success",
+  "finished": "2026-09-24T09:31:06Z",
+  "cells": {
+    "bukkit": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed"
+  },
+  "runtime": "java21"
+}

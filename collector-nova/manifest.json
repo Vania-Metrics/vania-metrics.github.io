@@ -1,0 +1,52 @@
+{
+  "minecraft": "1.21.11",
+  "core": "v0.6.0",
+  "plugin": {
+    "name": "Nova",
+    "compiled-against": "0.22.3",
+    "latest-for-minecraft": "0.22.3",
+    "source": "https://github.com/xenondevs/Nova/releases"
+  },
+  "platforms": {
+    "paper": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "spigot": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "bukkit": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "folia": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "purpur": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "sponge": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "bungeecord": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "geyser": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "velocity": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "waterfall": {
+      "plugin": "no",
+      "collector": "no"
+    }
+  }
+}

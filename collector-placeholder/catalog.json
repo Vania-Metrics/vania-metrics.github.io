@@ -1,0 +1,30 @@
+{
+  "metrics": [
+    {
+      "name": "mc_placeholder_value",
+      "type": "gauge",
+      "help": "Value of a placeholder, relayed as-is. Only what converts to a number is published — the rest is reported once then ignored.",
+      "labels": [
+        "placeholder"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/placeholder/PlaceholderCollector.java"
+    }
+  ],
+  "config": [
+    {
+      "key": "collector.placeholder.list",
+      "type": "string",
+      "default": "",
+      "env": "VANIA_METRICS_COLLECTOR_PLACEHOLDER_LIST",
+      "source": "src/main/java/fr/samflix/vaniametrics/module/placeholder/PlaceholderCollector.java"
+    }
+  ],
+  "collector": {
+    "class": "PlaceholderCollector",
+    "name": "placeholder",
+    "source": "PlaceholderAPI",
+    "background": true,
+    "interval": 30,
+    "text": "PlaceholderAPI — the last-resort connector.\n\nNine plugins hook into it on this server. This one exposes any of their placeholders as a metric, which covers in one go every plugin that will never have a module of its own. It's also the only connector that doesn't measure anything itself: it relays.\n\nHence three guards, none of them optional.\n\n- **A whitelist, empty by default.** This module does nothing until someone has written\n      what they want. Exposing \"every placeholder\" makes no sense: there are hundreds, most of\n      which render text.\n  \n- **Only what is numeric gets published**, and what isn't is reported once then\n      ignored. A placeholder renders a string; betting that it converts means silently\n      publishing `NaN` for a misspelled name.\n  \n- **Resolved with no player.** `setPlaceholders(null, …)` yields the global value.\n      Per-player placeholders would reopen the door to cardinality, and for those a dedicated\n      module exists — that's the whole point of this architecture.\n\nOn Folia the collection runs on the global region: placeholders that read global state work, those that read a world, a chunk or an entity are refused by Folia and rejected once, like a misspelt name.\n\nEvery placeholder is one series of a single metric, labelled by its name: `%plan_players_online_total%` becomes `mc_placeholder_value{placeholder=\"plan_players_online_total\"`}. The `placeholder` domain says where the value comes from, which is exactly what you want to know about a relayed number."
+  }
+}

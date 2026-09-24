@@ -1,0 +1,2262 @@
+{
+  "metrics": [
+    {
+      "name": "mc_bedrock_players_by_device",
+      "type": "gauge",
+      "help": "Bedrock players by device (android, ios, windows, xbox, ps4, nx...).",
+      "labels": [
+        "device"
+      ],
+      "source": "geyser/src/main/java/fr/samflix/vaniametrics/geyser/BedrockCollector.java"
+    },
+    {
+      "name": "mc_bedrock_players_by_input",
+      "type": "gauge",
+      "help": "Bedrock players by input mode (keyboard_mouse, touch, controller, vr).",
+      "labels": [
+        "input"
+      ],
+      "source": "geyser/src/main/java/fr/samflix/vaniametrics/geyser/BedrockCollector.java"
+    },
+    {
+      "name": "mc_bedrock_players_linked",
+      "type": "gauge",
+      "help": "Bedrock players whose account is linked to a Java account.",
+      "labels": [],
+      "source": "geyser/src/main/java/fr/samflix/vaniametrics/geyser/BedrockCollector.java"
+    },
+    {
+      "name": "mc_build_info",
+      "type": "gauge",
+      "help": "Always 1. The version is in the labels, the Prometheus idiom for publishing a string.",
+      "labels": [
+        "version",
+        "platform",
+        "server_version",
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_background_task_age_seconds",
+      "type": "gauge",
+      "help": "Age of a background collector's last successful run. Tells \"nothing changes\" apart from \"nothing is measuring\".",
+      "labels": [
+        "collector"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_collector_duration_seconds",
+      "type": "histogram",
+      "help": "Duration of one collection, per collector.",
+      "labels": [
+        "collector"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_collector_info",
+      "type": "gauge",
+      "help": "Always 1, one per active collector. source is where its numbers come from: \"core\" for what the server exposes itself, otherwise the plugin name.",
+      "labels": [
+        "collector",
+        "source",
+        "mode"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_player_series_dropped",
+      "type": "gauge",
+      "help": "Players whose detail is NOT published because of the collector.players.max_series cap. A non-zero value means per-player metrics are incomplete.",
+      "labels": [],
+      "source": "api/src/main/java/fr/samflix/vaniametrics/api/PlayerSeries.java"
+    },
+    {
+      "name": "mc_exporter_scrape_duration_seconds",
+      "type": "histogram",
+      "help": "Time spent answering a scrape. If this grows, the exporter is the problem.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_scrape_errors_total",
+      "type": "counter",
+      "help": "Collections that threw. A failing collector does not stop the others.",
+      "labels": [
+        "collector"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_exporter_up",
+      "type": "gauge",
+      "help": "1 once the exporter has finished starting.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/Exporter.java"
+    },
+    {
+      "name": "mc_host_cpu_periods_total",
+      "type": "counter",
+      "help": "Elapsed scheduling periods. The ratio with throttled_periods gives the share of throttled time.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_quota_cores",
+      "type": "gauge",
+      "help": "CPU quota, in cores. NaN when no limit is set, in which case throttling cannot happen.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_system_seconds_total",
+      "type": "counter",
+      "help": "CPU time in kernel space.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_throttled_periods_total",
+      "type": "counter",
+      "help": "Periods during which the kernel FROZE the container for lack of quota. A rising value explains low TPS that spark does not see.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_throttled_seconds_total",
+      "type": "counter",
+      "help": "Total time spent frozen by the kernel.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_usage_seconds_total",
+      "type": "counter",
+      "help": "CPU time used by the container.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_cpu_user_seconds_total",
+      "type": "counter",
+      "help": "CPU time in user space.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_disk_files",
+      "type": "gauge",
+      "help": "Number of files under the path.",
+      "labels": [
+        "path"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/DiskCollector.java"
+    },
+    {
+      "name": "mc_host_disk_free_bytes",
+      "type": "gauge",
+      "help": "Free space on the mount point.",
+      "labels": [
+        "path"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/DiskCollector.java"
+    },
+    {
+      "name": "mc_host_disk_total_bytes",
+      "type": "gauge",
+      "help": "Size of the mount point.",
+      "labels": [
+        "path"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/DiskCollector.java"
+    },
+    {
+      "name": "mc_host_disk_usage_bytes",
+      "type": "gauge",
+      "help": "Size of the contents, computed by walking the tree. Measured in the background, never on scrape.",
+      "labels": [
+        "path"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/DiskCollector.java"
+    },
+    {
+      "name": "mc_host_io_bytes_total",
+      "type": "counter",
+      "help": "Bytes read and written, per device.",
+      "labels": [
+        "device",
+        "operation"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_io_operations_total",
+      "type": "counter",
+      "help": "Disk operations, per device.",
+      "labels": [
+        "device",
+        "operation"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_memory_bytes",
+      "type": "gauge",
+      "help": "Memory breakdown. type = anon|file|kernel|sock.",
+      "labels": [
+        "type"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_memory_limit_bytes",
+      "type": "gauge",
+      "help": "Container memory limit.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_memory_oom_events_total",
+      "type": "counter",
+      "help": "Out-of-memory events. type = oom (allocation refused) | oom_kill (process killed). The latter is always an incident.",
+      "labels": [
+        "type"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_memory_page_faults_total",
+      "type": "counter",
+      "help": "Page faults. type = minor|major.",
+      "labels": [
+        "type"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_host_memory_usage_bytes",
+      "type": "gauge",
+      "help": "Memory used by the CONTAINER, JVM heap included.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/CgroupCollector.java"
+    },
+    {
+      "name": "mc_jvm_buffer_pool_bytes",
+      "type": "gauge",
+      "help": "Off-heap buffers. They count toward CONTAINER memory but not the heap, a classic cause of unexplained OOM kills.",
+      "labels": [
+        "pool",
+        "state"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_classes_loaded",
+      "type": "gauge",
+      "help": "Loaded classes.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_gc_collections_total",
+      "type": "counter",
+      "help": "Collections run, per garbage collector.",
+      "labels": [
+        "gc"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_gc_seconds_total",
+      "type": "counter",
+      "help": "Cumulative collection time. This is collection time, NOT stop-the-world time; for actual pauses use JFR or GC logs.",
+      "labels": [
+        "gc"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_memory_bytes",
+      "type": "gauge",
+      "help": "JVM memory. area = heap|nonheap, state = used|committed|max|init.",
+      "labels": [
+        "area",
+        "state"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_memory_pool_bytes",
+      "type": "gauge",
+      "help": "Memory per garbage collector pool (Eden, Survivor, Old, Metaspace).",
+      "labels": [
+        "pool",
+        "state"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_threads",
+      "type": "gauge",
+      "help": "JVM threads. state = live|daemon|peak|started.",
+      "labels": [
+        "state"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_threads_deadlocked",
+      "type": "gauge",
+      "help": "Deadlocked threads. Any non-zero value is an incident.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_jvm_uptime_seconds",
+      "type": "gauge",
+      "help": "Time since the JVM started.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/JvmCollector.java"
+    },
+    {
+      "name": "mc_proxy_backend_max_players",
+      "type": "gauge",
+      "help": "Player slots advertised by the backend in its ping response.",
+      "labels": [
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_backend_ping_seconds",
+      "type": "gauge",
+      "help": "Backend ping response time, as seen from the proxy.",
+      "labels": [
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_backend_players",
+      "type": "gauge",
+      "help": "Players per backend server.",
+      "labels": [
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_backend_up",
+      "type": "gauge",
+      "help": "1 if the backend answers the ping, 0 otherwise. The only outside view: a server that is down no longer publishes its own metrics.",
+      "labels": [
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_connections_total",
+      "type": "counter",
+      "help": "Connection attempts. result = pre_login|login|disconnect.",
+      "labels": [
+        "result"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyEvents.java"
+    },
+    {
+      "name": "mc_proxy_kicks_from_server_total",
+      "type": "counter",
+      "help": "Players kicked by a backend server.",
+      "labels": [
+        "server"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyEvents.java"
+    },
+    {
+      "name": "mc_proxy_pings_total",
+      "type": "counter",
+      "help": "Server list pings: clients LOOKING at the server without joining. A measure of attention, not load.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyEvents.java"
+    },
+    {
+      "name": "mc_proxy_player_ping_seconds",
+      "type": "histogram",
+      "help": "Ping distribution between players and the proxy.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_players_by_brand",
+      "type": "gauge",
+      "help": "Players by advertised client brand.",
+      "labels": [
+        "brand"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_players_online",
+      "type": "gauge",
+      "help": "Players connected to the proxy.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "name": "mc_proxy_server_switches_total",
+      "type": "counter",
+      "help": "Moves from one server to another. from = \"none\" on first connection.",
+      "labels": [
+        "from",
+        "to"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyEvents.java"
+    },
+    {
+      "name": "mc_server_blocks_total",
+      "type": "counter",
+      "help": "Blocks broken and placed. action = break|place.",
+      "labels": [
+        "action"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_chat_messages_total",
+      "type": "counter",
+      "help": "Chat messages.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_commands_total",
+      "type": "counter",
+      "help": "Commands run. The label is limited to a fixed list of commands, everything else is \"other\", to bound cardinality.",
+      "labels": [
+        "command"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_connections_total",
+      "type": "counter",
+      "help": "Joins and quits. result = join|quit.",
+      "labels": [
+        "result"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_deaths_total",
+      "type": "counter",
+      "help": "Player deaths, by cause.",
+      "labels": [
+        "cause"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_items_crafted_total",
+      "type": "counter",
+      "help": "Items crafted.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_mob_deaths_total",
+      "type": "counter",
+      "help": "Mobs killed. Only kills BY A PLAYER count: a skeleton burning in the sun says nothing about server activity.",
+      "labels": [
+        "entity_type"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_player_ping_seconds",
+      "type": "gauge",
+      "help": "Ping of an online player.",
+      "labels": [
+        "player",
+        "uuid"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_player_playtime_seconds",
+      "type": "gauge",
+      "help": "Total playtime of an online player.",
+      "labels": [
+        "player",
+        "uuid"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_player_statistic",
+      "type": "gauge",
+      "help": "A vanilla statistic, per player. Published while the player is online, which is enough since nothing happens offline.",
+      "labels": [
+        "player",
+        "uuid",
+        "statistic"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_player_statistics",
+      "type": "gauge",
+      "help": "Sum of a vanilla statistic over ONLINE players. Drops when they leave: a gauge, not a counter.",
+      "labels": [
+        "statistic"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_players_by_brand",
+      "type": "gauge",
+      "help": "Players by advertised client brand. A mod can fake it: it describes honest players, not cheaters.",
+      "labels": [
+        "brand"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_players_by_locale",
+      "type": "gauge",
+      "help": "Players by client locale.",
+      "labels": [
+        "locale"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_players_max",
+      "type": "gauge",
+      "help": "Player slots advertised by the server.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/TickCollector.java"
+    },
+    {
+      "name": "mc_server_players_online",
+      "type": "gauge",
+      "help": "Online players.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_players_ping_seconds",
+      "type": "histogram",
+      "help": "Ping distribution of online players.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_playtime_seconds_total",
+      "type": "counter",
+      "help": "Cumulative playtime of all online players.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/PlayerCollector.java"
+    },
+    {
+      "name": "mc_server_session_seconds",
+      "type": "histogram",
+      "help": "Session length, measured on quit.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/GameEvents.java"
+    },
+    {
+      "name": "mc_server_tick_average_seconds",
+      "type": "gauge",
+      "help": "Average tick duration, as computed by the server.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/TickCollector.java"
+    },
+    {
+      "name": "mc_server_tick_duration_seconds",
+      "type": "histogram",
+      "help": "Tick duration distribution. 0.05 s is the threshold: above it the server falls behind. This is THE alerting signal.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/TickCollector.java"
+    },
+    {
+      "name": "mc_server_ticks_total",
+      "type": "counter",
+      "help": "Ticks since startup.",
+      "labels": [],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/TickCollector.java"
+    },
+    {
+      "name": "mc_server_tps",
+      "type": "gauge",
+      "help": "Ticks per second, capped at 20. window = 1m|5m|15m. Do NOT alert on it: it only moves once the server is already behind.",
+      "labels": [
+        "window"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/TickCollector.java"
+    },
+    {
+      "name": "mc_world_chunks_loaded",
+      "type": "gauge",
+      "help": "Loaded chunks.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_entities",
+      "type": "gauge",
+      "help": "Loaded entities.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_entities_by_type",
+      "type": "gauge",
+      "help": "Entities by type. Collected in the background, and only types above the threshold are published, to keep cardinality bounded.",
+      "labels": [
+        "world",
+        "entity_type"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_players",
+      "type": "gauge",
+      "help": "Players in the world.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_tile_entities",
+      "type": "gauge",
+      "help": "Loaded tile entities: chests, furnaces, hoppers. Hoppers are the first cause of heavy ticks on a build server.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_time_ticks",
+      "type": "gauge",
+      "help": "World time, in ticks.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "name": "mc_world_weather",
+      "type": "gauge",
+      "help": "Weather. 0 = clear, 1 = rain, 2 = thunder.",
+      "labels": [
+        "world"
+      ],
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    }
+  ],
+  "config": [
+    {
+      "key": "collector.disk.paths",
+      "type": "string",
+      "default": "/data,/backups,/server",
+      "env": "VANIA_METRICS_COLLECTOR_DISK_PATHS",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/collector/DiskCollector.java"
+    },
+    {
+      "key": "collector.players.max_series",
+      "type": "int",
+      "default": "200",
+      "env": "VANIA_METRICS_COLLECTOR_PLAYERS_MAX_SERIES",
+      "source": "api/src/main/java/fr/samflix/vaniametrics/api/PlayerSeries.java"
+    },
+    {
+      "key": "collector.players.per_player",
+      "type": "boolean",
+      "default": "true",
+      "env": "VANIA_METRICS_COLLECTOR_PLAYERS_PER_PLAYER",
+      "source": "api/src/main/java/fr/samflix/vaniametrics/api/PlayerSeries.java"
+    },
+    {
+      "key": "collector.proxy.ping_timeout",
+      "type": "seconds",
+      "default": "5",
+      "env": "VANIA_METRICS_COLLECTOR_PROXY_PING_TIMEOUT",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/proxy/ProxyCollector.java"
+    },
+    {
+      "key": "collector.world.entity_type_threshold",
+      "type": "int",
+      "default": "5",
+      "env": "VANIA_METRICS_COLLECTOR_WORLD_ENTITY_TYPE_THRESHOLD",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/game/WorldCollector.java"
+    },
+    {
+      "key": "http.bind",
+      "type": "string",
+      "default": "0.0.0.0",
+      "env": "VANIA_METRICS_HTTP_BIND",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/MetricsHttpServer.java"
+    },
+    {
+      "key": "http.path",
+      "type": "string",
+      "default": "/metrics",
+      "env": "VANIA_METRICS_HTTP_PATH",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/MetricsHttpServer.java"
+    },
+    {
+      "key": "http.port",
+      "type": "int",
+      "default": "9940",
+      "env": "VANIA_METRICS_HTTP_PORT",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/MetricsHttpServer.java"
+    },
+    {
+      "key": "http.token",
+      "type": "string",
+      "default": "",
+      "env": "VANIA_METRICS_HTTP_TOKEN",
+      "source": "common/src/main/java/fr/samflix/vaniametrics/core/MetricsHttpServer.java"
+    }
+  ],
+  "contract": {
+    "game-folia": {
+      "mc_build_info": {
+        "type": "gauge",
+        "labels": [
+          "version",
+          "platform",
+          "server_version",
+          "server"
+        ]
+      },
+      "mc_exporter_background_task_age_seconds": {
+        "type": "gauge",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_duration_seconds": {
+        "type": "histogram",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_info": {
+        "type": "gauge",
+        "labels": [
+          "collector",
+          "source",
+          "mode"
+        ]
+      },
+      "mc_exporter_player_series_dropped": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_exporter_scrape_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_exporter_scrape_errors_total": {
+        "type": "counter",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_up": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_buffer_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_classes_loaded": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_gc_collections_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_gc_seconds_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_memory_bytes": {
+        "type": "gauge",
+        "labels": [
+          "area",
+          "state"
+        ]
+      },
+      "mc_jvm_memory_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_threads": {
+        "type": "gauge",
+        "labels": [
+          "state"
+        ]
+      },
+      "mc_jvm_threads_deadlocked": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_uptime_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_blocks_total": {
+        "type": "counter",
+        "labels": [
+          "action"
+        ]
+      },
+      "mc_server_chat_messages_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_commands_total": {
+        "type": "counter",
+        "labels": [
+          "command"
+        ]
+      },
+      "mc_server_connections_total": {
+        "type": "counter",
+        "labels": [
+          "result"
+        ]
+      },
+      "mc_server_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "cause"
+        ]
+      },
+      "mc_server_items_crafted_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_mob_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "entity_type"
+        ]
+      },
+      "mc_server_player_ping_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_playtime_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_statistic": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid",
+          "statistic"
+        ]
+      },
+      "mc_server_player_statistics": {
+        "type": "gauge",
+        "labels": [
+          "statistic"
+        ]
+      },
+      "mc_server_players_by_brand": {
+        "type": "gauge",
+        "labels": [
+          "brand"
+        ]
+      },
+      "mc_server_players_by_locale": {
+        "type": "gauge",
+        "labels": [
+          "locale"
+        ]
+      },
+      "mc_server_players_max": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_online": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_ping_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_playtime_seconds_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_session_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_ticks_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_tps": {
+        "type": "gauge",
+        "labels": [
+          "window"
+        ]
+      },
+      "mc_world_chunks_loaded": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_players": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_tile_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_time_ticks": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_weather": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      }
+    },
+    "game-paper": {
+      "mc_build_info": {
+        "type": "gauge",
+        "labels": [
+          "version",
+          "platform",
+          "server_version",
+          "server"
+        ]
+      },
+      "mc_exporter_background_task_age_seconds": {
+        "type": "gauge",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_duration_seconds": {
+        "type": "histogram",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_info": {
+        "type": "gauge",
+        "labels": [
+          "collector",
+          "source",
+          "mode"
+        ]
+      },
+      "mc_exporter_player_series_dropped": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_exporter_scrape_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_exporter_scrape_errors_total": {
+        "type": "counter",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_up": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_buffer_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_classes_loaded": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_gc_collections_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_gc_seconds_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_memory_bytes": {
+        "type": "gauge",
+        "labels": [
+          "area",
+          "state"
+        ]
+      },
+      "mc_jvm_memory_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_threads": {
+        "type": "gauge",
+        "labels": [
+          "state"
+        ]
+      },
+      "mc_jvm_threads_deadlocked": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_uptime_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_blocks_total": {
+        "type": "counter",
+        "labels": [
+          "action"
+        ]
+      },
+      "mc_server_chat_messages_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_commands_total": {
+        "type": "counter",
+        "labels": [
+          "command"
+        ]
+      },
+      "mc_server_connections_total": {
+        "type": "counter",
+        "labels": [
+          "result"
+        ]
+      },
+      "mc_server_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "cause"
+        ]
+      },
+      "mc_server_items_crafted_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_mob_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "entity_type"
+        ]
+      },
+      "mc_server_player_ping_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_playtime_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_statistic": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid",
+          "statistic"
+        ]
+      },
+      "mc_server_player_statistics": {
+        "type": "gauge",
+        "labels": [
+          "statistic"
+        ]
+      },
+      "mc_server_players_by_brand": {
+        "type": "gauge",
+        "labels": [
+          "brand"
+        ]
+      },
+      "mc_server_players_by_locale": {
+        "type": "gauge",
+        "labels": [
+          "locale"
+        ]
+      },
+      "mc_server_players_max": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_online": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_ping_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_playtime_seconds_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_session_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_tick_average_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_tick_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_ticks_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_tps": {
+        "type": "gauge",
+        "labels": [
+          "window"
+        ]
+      },
+      "mc_world_chunks_loaded": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities_by_type": {
+        "type": "gauge",
+        "labels": [
+          "world",
+          "entity_type"
+        ]
+      },
+      "mc_world_players": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_tile_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_time_ticks": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_weather": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      }
+    },
+    "game-spigot": {
+      "mc_build_info": {
+        "type": "gauge",
+        "labels": [
+          "version",
+          "platform",
+          "server_version",
+          "server"
+        ]
+      },
+      "mc_exporter_background_task_age_seconds": {
+        "type": "gauge",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_duration_seconds": {
+        "type": "histogram",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_info": {
+        "type": "gauge",
+        "labels": [
+          "collector",
+          "source",
+          "mode"
+        ]
+      },
+      "mc_exporter_player_series_dropped": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_exporter_scrape_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_exporter_scrape_errors_total": {
+        "type": "counter",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_up": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_buffer_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_classes_loaded": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_gc_collections_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_gc_seconds_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_memory_bytes": {
+        "type": "gauge",
+        "labels": [
+          "area",
+          "state"
+        ]
+      },
+      "mc_jvm_memory_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_threads": {
+        "type": "gauge",
+        "labels": [
+          "state"
+        ]
+      },
+      "mc_jvm_threads_deadlocked": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_uptime_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_blocks_total": {
+        "type": "counter",
+        "labels": [
+          "action"
+        ]
+      },
+      "mc_server_chat_messages_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_commands_total": {
+        "type": "counter",
+        "labels": [
+          "command"
+        ]
+      },
+      "mc_server_connections_total": {
+        "type": "counter",
+        "labels": [
+          "result"
+        ]
+      },
+      "mc_server_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "cause"
+        ]
+      },
+      "mc_server_items_crafted_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_mob_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "entity_type"
+        ]
+      },
+      "mc_server_player_ping_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_playtime_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_statistic": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid",
+          "statistic"
+        ]
+      },
+      "mc_server_player_statistics": {
+        "type": "gauge",
+        "labels": [
+          "statistic"
+        ]
+      },
+      "mc_server_players_by_brand": {
+        "type": "gauge",
+        "labels": [
+          "brand"
+        ]
+      },
+      "mc_server_players_by_locale": {
+        "type": "gauge",
+        "labels": [
+          "locale"
+        ]
+      },
+      "mc_server_players_max": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_online": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_ping_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_playtime_seconds_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_session_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_ticks_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_tps": {
+        "type": "gauge",
+        "labels": [
+          "window"
+        ]
+      },
+      "mc_world_chunks_loaded": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities_by_type": {
+        "type": "gauge",
+        "labels": [
+          "world",
+          "entity_type"
+        ]
+      },
+      "mc_world_players": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_tile_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_time_ticks": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_weather": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      }
+    },
+    "game-sponge": {
+      "mc_build_info": {
+        "type": "gauge",
+        "labels": [
+          "version",
+          "platform",
+          "server_version",
+          "server"
+        ]
+      },
+      "mc_exporter_background_task_age_seconds": {
+        "type": "gauge",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_duration_seconds": {
+        "type": "histogram",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_info": {
+        "type": "gauge",
+        "labels": [
+          "collector",
+          "source",
+          "mode"
+        ]
+      },
+      "mc_exporter_player_series_dropped": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_exporter_scrape_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_exporter_scrape_errors_total": {
+        "type": "counter",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_up": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_buffer_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_classes_loaded": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_gc_collections_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_gc_seconds_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_memory_bytes": {
+        "type": "gauge",
+        "labels": [
+          "area",
+          "state"
+        ]
+      },
+      "mc_jvm_memory_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_threads": {
+        "type": "gauge",
+        "labels": [
+          "state"
+        ]
+      },
+      "mc_jvm_threads_deadlocked": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_uptime_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_blocks_total": {
+        "type": "counter",
+        "labels": [
+          "action"
+        ]
+      },
+      "mc_server_chat_messages_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_commands_total": {
+        "type": "counter",
+        "labels": [
+          "command"
+        ]
+      },
+      "mc_server_connections_total": {
+        "type": "counter",
+        "labels": [
+          "result"
+        ]
+      },
+      "mc_server_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "cause"
+        ]
+      },
+      "mc_server_items_crafted_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_mob_deaths_total": {
+        "type": "counter",
+        "labels": [
+          "entity_type"
+        ]
+      },
+      "mc_server_player_ping_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_playtime_seconds": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid"
+        ]
+      },
+      "mc_server_player_statistic": {
+        "type": "gauge",
+        "labels": [
+          "player",
+          "uuid",
+          "statistic"
+        ]
+      },
+      "mc_server_player_statistics": {
+        "type": "gauge",
+        "labels": [
+          "statistic"
+        ]
+      },
+      "mc_server_players_by_brand": {
+        "type": "gauge",
+        "labels": [
+          "brand"
+        ]
+      },
+      "mc_server_players_by_locale": {
+        "type": "gauge",
+        "labels": [
+          "locale"
+        ]
+      },
+      "mc_server_players_max": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_online": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_players_ping_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_playtime_seconds_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_session_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_server_tick_average_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_server_ticks_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_server_tps": {
+        "type": "gauge",
+        "labels": [
+          "window"
+        ]
+      },
+      "mc_world_chunks_loaded": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_entities_by_type": {
+        "type": "gauge",
+        "labels": [
+          "world",
+          "entity_type"
+        ]
+      },
+      "mc_world_players": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_tile_entities": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_time_ticks": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      },
+      "mc_world_weather": {
+        "type": "gauge",
+        "labels": [
+          "world"
+        ]
+      }
+    },
+    "proxy": {
+      "mc_build_info": {
+        "type": "gauge",
+        "labels": [
+          "version",
+          "platform",
+          "server_version",
+          "server"
+        ]
+      },
+      "mc_exporter_background_task_age_seconds": {
+        "type": "gauge",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_duration_seconds": {
+        "type": "histogram",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_collector_info": {
+        "type": "gauge",
+        "labels": [
+          "collector",
+          "source",
+          "mode"
+        ]
+      },
+      "mc_exporter_scrape_duration_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_exporter_scrape_errors_total": {
+        "type": "counter",
+        "labels": [
+          "collector"
+        ]
+      },
+      "mc_exporter_up": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_buffer_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_classes_loaded": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_gc_collections_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_gc_seconds_total": {
+        "type": "counter",
+        "labels": [
+          "gc"
+        ]
+      },
+      "mc_jvm_memory_bytes": {
+        "type": "gauge",
+        "labels": [
+          "area",
+          "state"
+        ]
+      },
+      "mc_jvm_memory_pool_bytes": {
+        "type": "gauge",
+        "labels": [
+          "pool",
+          "state"
+        ]
+      },
+      "mc_jvm_threads": {
+        "type": "gauge",
+        "labels": [
+          "state"
+        ]
+      },
+      "mc_jvm_threads_deadlocked": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_jvm_uptime_seconds": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_proxy_backend_max_players": {
+        "type": "gauge",
+        "labels": [
+          "server"
+        ]
+      },
+      "mc_proxy_backend_ping_seconds": {
+        "type": "gauge",
+        "labels": [
+          "server"
+        ]
+      },
+      "mc_proxy_backend_players": {
+        "type": "gauge",
+        "labels": [
+          "server"
+        ]
+      },
+      "mc_proxy_backend_up": {
+        "type": "gauge",
+        "labels": [
+          "server"
+        ]
+      },
+      "mc_proxy_connections_total": {
+        "type": "counter",
+        "labels": [
+          "result"
+        ]
+      },
+      "mc_proxy_kicks_from_server_total": {
+        "type": "counter",
+        "labels": [
+          "server"
+        ]
+      },
+      "mc_proxy_pings_total": {
+        "type": "counter",
+        "labels": []
+      },
+      "mc_proxy_player_ping_seconds": {
+        "type": "histogram",
+        "labels": []
+      },
+      "mc_proxy_players_by_brand": {
+        "type": "gauge",
+        "labels": [
+          "brand"
+        ]
+      },
+      "mc_proxy_players_online": {
+        "type": "gauge",
+        "labels": []
+      },
+      "mc_proxy_server_switches_total": {
+        "type": "counter",
+        "labels": [
+          "from",
+          "to"
+        ]
+      }
+    }
+  },
+  "expected": {
+    "bukkit": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_ticks_total",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand",
+        "mc_server_tick_average_seconds",
+        "mc_server_tick_duration_seconds"
+      ]
+    },
+    "bungeecord": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_proxy_backend_max_players",
+        "mc_proxy_backend_ping_seconds",
+        "mc_proxy_backend_players",
+        "mc_proxy_backend_up",
+        "mc_proxy_players_online"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_proxy_connections_total",
+        "mc_proxy_player_ping_seconds",
+        "mc_proxy_players_by_brand",
+        "mc_server_players_online",
+        "mc_world_entities"
+      ]
+    },
+    "folia": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_ticks_total",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand",
+        "mc_server_tick_average_seconds",
+        "mc_server_tick_duration_seconds",
+        "mc_world_entities_by_type"
+      ]
+    },
+    "geyser": {
+      "present": [
+        "mc_bedrock_players_linked",
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_proxy_players_online"
+      ],
+      "absent": [
+        "mc_bedrock_players_by_device",
+        "mc_exporter_scrape_errors_total",
+        "mc_proxy_backend_up",
+        "mc_proxy_connections_total",
+        "mc_server_players_online"
+      ]
+    },
+    "paper": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_tick_average_seconds",
+        "mc_server_tick_duration_seconds",
+        "mc_server_ticks_total",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand"
+      ]
+    },
+    "purpur": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_tick_average_seconds",
+        "mc_server_tick_duration_seconds",
+        "mc_server_ticks_total",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand"
+      ]
+    },
+    "spigot": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_ticks_total",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand",
+        "mc_server_tick_average_seconds",
+        "mc_server_tick_duration_seconds"
+      ]
+    },
+    "sponge": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_player_series_dropped",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_server_player_statistics",
+        "mc_server_players_max",
+        "mc_server_players_online",
+        "mc_server_playtime_seconds_total",
+        "mc_server_tick_average_seconds",
+        "mc_server_tps",
+        "mc_world_chunks_loaded",
+        "mc_world_entities",
+        "mc_world_players",
+        "mc_world_tile_entities",
+        "mc_world_time_ticks",
+        "mc_world_weather"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_server_connections_total",
+        "mc_server_player_ping_seconds",
+        "mc_server_players_by_brand",
+        "mc_server_tick_duration_seconds"
+      ]
+    },
+    "velocity": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_proxy_backend_max_players",
+        "mc_proxy_backend_ping_seconds",
+        "mc_proxy_backend_players",
+        "mc_proxy_backend_up",
+        "mc_proxy_players_online"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_proxy_connections_total",
+        "mc_proxy_player_ping_seconds",
+        "mc_proxy_players_by_brand",
+        "mc_server_players_online",
+        "mc_world_entities"
+      ]
+    },
+    "waterfall": {
+      "present": [
+        "mc_build_info",
+        "mc_exporter_background_task_age_seconds",
+        "mc_exporter_collector_duration_seconds",
+        "mc_exporter_collector_info",
+        "mc_exporter_scrape_duration_seconds",
+        "mc_exporter_up",
+        "mc_jvm_buffer_pool_bytes",
+        "mc_jvm_classes_loaded",
+        "mc_jvm_gc_collections_total",
+        "mc_jvm_gc_seconds_total",
+        "mc_jvm_memory_bytes",
+        "mc_jvm_memory_pool_bytes",
+        "mc_jvm_threads",
+        "mc_jvm_threads_deadlocked",
+        "mc_jvm_uptime_seconds",
+        "mc_proxy_backend_max_players",
+        "mc_proxy_backend_ping_seconds",
+        "mc_proxy_backend_players",
+        "mc_proxy_backend_up",
+        "mc_proxy_players_online"
+      ],
+      "absent": [
+        "mc_exporter_scrape_errors_total",
+        "mc_proxy_connections_total",
+        "mc_proxy_player_ping_seconds",
+        "mc_proxy_players_by_brand",
+        "mc_server_players_online",
+        "mc_world_entities"
+      ]
+    }
+  }
+}

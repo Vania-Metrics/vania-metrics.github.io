@@ -1,0 +1,18 @@
+{
+  "repo": "collector-excellenteconomy",
+  "workflow": "ci",
+  "run_id": 35981314106,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-excellenteconomy/actions/runs/35981314106",
+  "event": "push",
+  "branch": "main",
+  "sha": "5679d5a4b53d01b240c5e8be48a6bfb65e854a28",
+  "result": "success",
+  "finished": "2026-09-24T09:30:18Z",
+  "cells": {
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed"
+  },
+  "runtime": "java25"
+}

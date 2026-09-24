@@ -1,0 +1,22 @@
+{
+  "metrics": [
+    {
+      "name": "mc_inventory_switches_total",
+      "type": "counter",
+      "help": "Inventory switches. cause = world|gamemode. Each one reads and writes a profile to disk: it's also a load indicator.",
+      "labels": [
+        "cause"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/mvinventories/InventoriesCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "InventoriesCollector",
+    "name": "inventory",
+    "source": "Multiverse-Inventories",
+    "background": false,
+    "interval": null,
+    "text": "Multiverse-Inventories — inventory switches.\n\nWhat this actually measures: every switch reads and writes a player profile to disk. This counter is therefore as much a gameplay indicator — how often players change worlds — as a load indicator: a burst of switches explains I/O that no other metric would attribute.\n\n`cause` distinguishes the two origins: a world change, or a game mode change when the configuration separates inventories by mode."
+  }
+}

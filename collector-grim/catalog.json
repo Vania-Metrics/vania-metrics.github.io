@@ -1,0 +1,38 @@
+{
+  "metrics": [
+    {
+      "name": "mc_anticheat_flags_total",
+      "type": "counter",
+      "help": "Violations flagged by GrimAC, per check. Its RATE is the signal: a few scattered flags are normal, a burst on the same check is not.",
+      "labels": [
+        "check"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/grim/GrimCollector.java"
+    },
+    {
+      "name": "mc_anticheat_setbacks_total",
+      "type": "counter",
+      "help": "Violations that caused a player SETBACK — GrimAC actually corrected it, not just logged it.",
+      "labels": [
+        "check"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/grim/GrimCollector.java"
+    },
+    {
+      "name": "mc_anticheat_violation_level",
+      "type": "histogram",
+      "help": "Accumulated violation level at the time of the flag. A rising level distinguishes an isolated incident from sustained behavior.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/grim/GrimCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "GrimCollector",
+    "name": "anticheat",
+    "source": "GrimAC",
+    "background": false,
+    "interval": null,
+    "text": "GrimAC — anticheat violations.\n\nThis is the most valuable collector in the set, because it gives information no other source has: `mc_anticheat_flags_total{check=\"…\"`} shows the server's defenses being exercised, and its RATE is a natural alert. A legitimate player occasionally triggers a check — network jitter, clock drift — ten in a minute on the same check does not.\n\nNo player label here, and this is a case where the strict rule applies without nuance: a flag is a HIGH-FREQUENCY event, and the player it's about is exactly the one who can produce thousands of them. To find out WHO, GrimAC's own logs are the right tool.\n\nA flag cancelled by another listener — an exemption, a player in creative mode — never happened. Counting it would measure suspicion, not fact.\n\nFlags come from GrimAC's own event bus, not from Bukkit's event system. GrimAC deprecated its Bukkit events, and Paper says so on every start (\"Server performance will be affected\"): each flag would otherwise be bridged into a Bukkit event just for us. The verbose text of a flag is handed over as a supplier and never asked for, so it is never built for us either."
+  }
+}

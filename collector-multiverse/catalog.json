@@ -1,0 +1,43 @@
+{
+  "metrics": [
+    {
+      "name": "mc_multiverse_world_info",
+      "type": "gauge",
+      "help": "Always 1. The world's characteristics are in the labels.",
+      "labels": [
+        "world",
+        "alias",
+        "environment",
+        "difficulty"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/multiverse/MultiverseCollector.java"
+    },
+    {
+      "name": "mc_multiverse_world_loaded",
+      "type": "gauge",
+      "help": "1 if the world is loaded, 0 if it is declared but absent from memory. A world thought to be loaded that isn't is a silent outage.",
+      "labels": [
+        "world"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/multiverse/MultiverseCollector.java"
+    },
+    {
+      "name": "mc_multiverse_worlds",
+      "type": "gauge",
+      "help": "Worlds declared in Multiverse. state = loaded|unloaded.",
+      "labels": [
+        "state"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/multiverse/MultiverseCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "MultiverseCollector",
+    "name": "multiverse",
+    "source": "Multiverse-Core",
+    "background": false,
+    "interval": null,
+    "text": "The Multiverse collector."
+  }
+}

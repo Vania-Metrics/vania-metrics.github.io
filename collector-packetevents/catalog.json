@@ -1,0 +1,41 @@
+{
+  "metrics": [
+    {
+      "name": "mc_network_packets_total",
+      "type": "counter",
+      "help": "Packets crossing the server. direction = in|out. packet_type is bounded by collector.packets.types; everything else falls into \"other\".",
+      "labels": [
+        "direction",
+        "packet_type"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/packetevents/PacketEventsCollector.java"
+    },
+    {
+      "name": "mc_network_players_by_protocol",
+      "type": "gauge",
+      "help": "Players by protocol version. PacketEvents is the only one that knows it: org.bukkit.entity.Player doesn't expose it.",
+      "labels": [
+        "protocol",
+        "version_name"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/packetevents/PacketEventsCollector.java"
+    }
+  ],
+  "config": [
+    {
+      "key": "collector.packets.types",
+      "type": "string",
+      "default": "",
+      "env": "VANIA_METRICS_COLLECTOR_PACKETS_TYPES",
+      "source": "src/main/java/fr/samflix/vaniametrics/module/packetevents/PacketEventsCollector.java"
+    }
+  ],
+  "collector": {
+    "class": "PacketEventsCollector",
+    "name": "packets",
+    "source": "packetevents",
+    "background": false,
+    "interval": null,
+    "text": "The packet counter.\n\nThe work happens in the listener, not in collect: every packet increments a counter, and the scrape only reads. This is the reverse of the other collectors, and it's the only tenable way to measure something that happens ten thousand times a second.\n\nPacket size is not published, and that's not an oversight: PacketEvents' API exposes no byte length on its events — checked on `ProtocolPacketEvent` and `PacketReceiveEvent`. Measuring it would mean reading Netty's `ByteBuf` by reflection, on the network thread, for every packet. Not worth it."
+  }
+}

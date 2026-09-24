@@ -1,0 +1,41 @@
+{
+  "metrics": [
+    {
+      "name": "mc_mob_deaths_total",
+      "type": "counter",
+      "help": "Custom mobs killed. \"killer\" distinguishes the player from everything else — a mob killed by the environment is not content being played.",
+      "labels": [
+        "mob_type",
+        "killer"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/mythicmobs/MythicMobsCollector.java"
+    },
+    {
+      "name": "mc_mob_despawns_total",
+      "type": "counter",
+      "help": "Custom mobs despawned WITHOUT being killed: chunk unload, entity limit, cleanup. A high ratio against spawns signals wasted work.",
+      "labels": [
+        "mob_type"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/mythicmobs/MythicMobsCollector.java"
+    },
+    {
+      "name": "mc_mob_spawns_total",
+      "type": "counter",
+      "help": "Custom mobs spawned.",
+      "labels": [
+        "mob_type"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/mythicmobs/MythicMobsCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "MythicMobsCollector",
+    "name": "mob",
+    "source": "MythicMobs",
+    "background": false,
+    "interval": null,
+    "text": "MythicMobs — what spawns, what dies, what despawns.\n\nThe difference between dying and despawning is all the information here. A KILLED mob is content being played; a DESPAWNED mob is wasted work — chunk unload, entity limit, cleanup. A server that spawns a hundred mobs and despawns ninety without a kill has a design problem that no other metric would reveal.\n\nThe label is the mob TYPE, not its instance: MythicMobs declares a closed list of them in the server files, which makes it exactly the kind of bounded set that makes a good label."
+  }
+}

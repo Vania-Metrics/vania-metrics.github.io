@@ -1,0 +1,73 @@
+{
+  "metrics": [
+    {
+      "name": "mc_economy_accounts",
+      "type": "gauge",
+      "help": "Accounts with a balance.",
+      "labels": [
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_economy_balance",
+      "type": "gauge",
+      "help": "Balance distribution. quantile = p50|p90|p99|max.",
+      "labels": [
+        "currency",
+        "quantile"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_economy_cache_age_seconds",
+      "type": "gauge",
+      "help": "Age of EssentialsX's ranking cache. If it keeps rising, the displayed total is stale.",
+      "labels": [
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_economy_gini",
+      "type": "gauge",
+      "help": "Wealth concentration, from 0 (equal) to 1 (one holder).",
+      "labels": [
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_economy_total",
+      "type": "gauge",
+      "help": "Money in circulation, across all accounts.",
+      "labels": [
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_server_players_afk",
+      "type": "gauge",
+      "help": "Players connected but idle.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    },
+    {
+      "name": "mc_server_players_afk_seconds",
+      "type": "histogram",
+      "help": "How long they've been idle. Distinguishes \"three players away for two minutes\" from \"three players away for six hours\".",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/essentials/EssentialsCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "EssentialsCollector",
+    "name": "essentials",
+    "source": "EssentialsX",
+    "background": true,
+    "interval": 60,
+    "text": "EssentialsX collector.\n\nRuns in the background because of the balance top ranking: `calculateBalanceTopMapAsync()` reads every account. We don't trigger it — EssentialsX refreshes it on its own — we read its cache and publish its age, so a stale total shows up instead of passing for a stable economy.\n\nThe Gini coefficient says in one number whether the economy is concentrated in a handful of players. 0 = everyone has the same, 1 = one player has everything. It's the kind of thing a top-ten ranking never shows."
+  }
+}

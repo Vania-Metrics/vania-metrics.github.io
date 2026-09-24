@@ -1,0 +1,19 @@
+{
+  "repo": "collector-essentials",
+  "workflow": "ci",
+  "run_id": 35981311185,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-essentials/actions/runs/35981311185",
+  "event": "push",
+  "branch": "main",
+  "sha": "2de2e994da2b0288cb61d9b94a096acfb27a68e4",
+  "result": "success",
+  "finished": "2026-09-24T09:31:46Z",
+  "cells": {
+    "bukkit": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed"
+  },
+  "runtime": "java21"
+}

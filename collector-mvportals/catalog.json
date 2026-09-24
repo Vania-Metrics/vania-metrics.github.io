@@ -1,0 +1,22 @@
+{
+  "metrics": [
+    {
+      "name": "mc_portal_uses_total",
+      "type": "counter",
+      "help": "Portal traversals, by departure world.",
+      "labels": [
+        "from_world"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/mvportals/PortalsCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "PortalsCollector",
+    "name": "portal",
+    "source": "Multiverse-Portals",
+    "background": false,
+    "interval": null,
+    "text": "Multiverse-Portals — who goes where.\n\nA traffic counter: it tells which portals are used and which are dead. On a multi-world network, it's the only metric that tells the story of how players move around.\n\nA single label, the departure world, for two distinct reasons.\n\nThe first is cardinality: a portal's NAME is free-form and multiplies without bound — one time series per built portal, forever. The world, on the other hand, is a closed set.\n\nThe second is the API. `getPortalType()` and `getDestination()` are both deprecated in Multiverse-Portals 5.3, the latter marked for removal — checked one by one. The only accessors still sound are `getTeleportee()`, `getFrom()` and `getSendingPortal()`. Rather than build a label on something about to disappear, this counts what can be counted durably."
+  }
+}

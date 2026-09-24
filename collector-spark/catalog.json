@@ -1,0 +1,80 @@
+{
+  "metrics": [
+    {
+      "name": "mc_spark_allocation_bytes_per_second",
+      "type": "gauge",
+      "help": "Memory allocation rate. It's not the memory that's OCCUPIED that causes stutters, it's the rate at which it's requested: every gigabyte allocated ends up collected, hence a micro-pause.",
+      "labels": [
+        "window",
+        "quantile"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_cpu_ratio",
+      "type": "gauge",
+      "help": "CPU load, from 0 to 1. source = process|system.",
+      "labels": [
+        "source",
+        "window"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_gc_average_frequency_seconds",
+      "type": "gauge",
+      "help": "Average time between two collections. Short = the heap fills up fast.",
+      "labels": [
+        "gc"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_gc_average_seconds",
+      "type": "gauge",
+      "help": "Average duration of a collection, per garbage collector.",
+      "labels": [
+        "gc"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_player_ping_seconds",
+      "type": "gauge",
+      "help": "Player ping aggregated by spark. quantile = min|mean|median|p95|max.",
+      "labels": [
+        "window",
+        "quantile"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_tick_duration_seconds",
+      "type": "gauge",
+      "help": "Tick duration as seen by spark. quantile = min|mean|median|p95|max. Gauges frozen on spark's windows: for a real histogram, see mc_tick_duration_seconds.",
+      "labels": [
+        "window",
+        "quantile"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    },
+    {
+      "name": "mc_spark_tps",
+      "type": "gauge",
+      "help": "TPS as seen by spark. window = 5s|10s|1m|5m|15m.",
+      "labels": [
+        "window"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/spark/SparkCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "SparkCollector",
+    "name": "spark",
+    "source": "spark",
+    "background": false,
+    "interval": null,
+    "text": "The spark poll.\n\nScrape mode, not background: everything spark exposes is already computed and cached by it, `poll()` just reads a field. This is the cheapest collector in the plugin.\n\nTwo versions of the API coexist on this network, and that drives how this class is written:\n\n- the **lobby** carries the one Paper embeds, `0.1-20240720` — `tps`,\n      `mspt`, `cpuProcess`, `cpuSystem`, `gc`, and nothing else;\n  \n- the **proxy** carries spark 1.10.187's, which adds `memoryAllocation()` and\n      `playerPing()`.\n\nHence two rules. **Windows are discovered via `getWindows()`** instead of being named: `StatisticWindow.MemoryAllocation` doesn't exist on the Paper side, and merely referencing that class was enough to make the module fail with a `NoClassDefFoundError` — observed. And **the two recent methods go through reflection**, which here is the honest choice rather than a workaround: the clean solution would be to compile two modules, one per API version, for two metrics."
+  }
+}

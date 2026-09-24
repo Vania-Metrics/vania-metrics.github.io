@@ -1,0 +1,52 @@
+{
+  "minecraft": "1.21.11",
+  "core": "v0.6.0",
+  "plugin": {
+    "name": "spark",
+    "compiled-against": "spark-api 0.1-20240720.200737-2 (the API Paper bundles)",
+    "latest-for-minecraft": "1.10.187",
+    "source": "https://spark.lucko.me/download"
+  },
+  "platforms": {
+    "paper": {
+      "plugin": "bundled",
+      "collector": "yes"
+    },
+    "spigot": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "bukkit": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "folia": {
+      "plugin": "bundled",
+      "collector": "yes"
+    },
+    "purpur": {
+      "plugin": "bundled",
+      "collector": "yes"
+    },
+    "sponge": {
+      "plugin": "unknown",
+      "collector": "no"
+    },
+    "bungeecord": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "geyser": {
+      "plugin": "unknown",
+      "collector": "no"
+    },
+    "velocity": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "waterfall": {
+      "plugin": "yes",
+      "collector": "yes"
+    }
+  }
+}

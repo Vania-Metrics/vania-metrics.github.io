@@ -1,0 +1,52 @@
+{
+  "minecraft": "1.21.11",
+  "core": "v0.6.0",
+  "plugin": {
+    "name": "GrimAC",
+    "compiled-against": "2.3.74",
+    "latest-for-minecraft": "2.3.74",
+    "source": "https://modrinth.com/plugin/grimac"
+  },
+  "platforms": {
+    "paper": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "spigot": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "bukkit": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "folia": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "purpur": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "sponge": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "bungeecord": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "geyser": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "velocity": {
+      "plugin": "no",
+      "collector": "no"
+    },
+    "waterfall": {
+      "plugin": "no",
+      "collector": "no"
+    }
+  }
+}

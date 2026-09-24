@@ -1,0 +1,52 @@
+{
+  "minecraft": "1.21.11",
+  "core": "v0.6.0",
+  "plugin": {
+    "name": "PacketEvents",
+    "compiled-against": "2.13.0",
+    "latest-for-minecraft": "2.13.0",
+    "source": "https://modrinth.com/plugin/packetevents"
+  },
+  "platforms": {
+    "paper": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "spigot": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "bukkit": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "folia": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "purpur": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "sponge": {
+      "plugin": "yes",
+      "collector": "no"
+    },
+    "bungeecord": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "geyser": {
+      "plugin": "unknown",
+      "collector": "no"
+    },
+    "velocity": {
+      "plugin": "yes",
+      "collector": "yes"
+    },
+    "waterfall": {
+      "plugin": "yes",
+      "collector": "yes"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metrics": [
+    {
+      "name": "mc_quest_conversations_total",
+      "type": "counter",
+      "help": "Conversations started with an NPC.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    },
+    {
+      "name": "mc_quest_journal_entries_total",
+      "type": "counter",
+      "help": "Journal entries written.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    },
+    {
+      "name": "mc_quest_player_points",
+      "type": "gauge",
+      "help": "Quest points for an online player, by category. For a skull hunt, category = skulls gives the number of skulls found.",
+      "labels": [
+        "player",
+        "uuid",
+        "category"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    },
+    {
+      "name": "mc_quest_player_tags",
+      "type": "gauge",
+      "help": "Tags added to a player SINCE THEY CONNECTED. Not their lifetime total: the collector doesn't read the database, only what happened while it was watching.",
+      "labels": [
+        "player",
+        "uuid"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    },
+    {
+      "name": "mc_quest_tags_removed_total",
+      "type": "counter",
+      "help": "Tags removed. A progress reset shows up here.",
+      "labels": [
+        "tag"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    },
+    {
+      "name": "mc_quest_tags_total",
+      "type": "counter",
+      "help": "Tags added since startup. For skull hunts, tag = found_<key>: this is THE metric for finds.",
+      "labels": [
+        "tag"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/betonquest/BetonQuestCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "BetonQuestCollector",
+    "name": "betonquest",
+    "source": "BetonQuest",
+    "background": false,
+    "interval": null,
+    "text": "Quest progress, without touching the database.\n\nBetonQuest keeps its state in MySQL, but a `SELECT tag, COUNT(*)` would couple this exporter to a schema it doesn't own, require a JDBC connection, and make TPS depend on a database's health. BetonQuest also emits real Bukkit events — `PlayerTagAddEvent`, `PlayerUpdatePointEvent`, `PlayerJournalAddEvent` — carrying the tag, category, count and profile, so there is nothing to query: listening is enough.\n\nThe trade-off: counters reset on server restart, so \"how many players have ever found this skull\" is not a question this collector can answer — `increase()` over a window, yes; lifetime totals, no. The per-player gauges cover part of that gap: while a player is online, their progress is published as an absolute value, and they can't progress while offline anyway."
+  }
+}

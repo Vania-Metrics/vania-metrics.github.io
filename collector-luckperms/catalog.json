@@ -1,0 +1,52 @@
+{
+  "metrics": [
+    {
+      "name": "mc_permission_group_weight",
+      "type": "gauge",
+      "help": "A group's weight, as LuckPerms uses it to resolve conflicts.",
+      "labels": [
+        "group"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/luckperms/LuckPermsCollector.java"
+    },
+    {
+      "name": "mc_permission_groups",
+      "type": "gauge",
+      "help": "Declared groups.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/luckperms/LuckPermsCollector.java"
+    },
+    {
+      "name": "mc_permission_online_by_group",
+      "type": "gauge",
+      "help": "Players ONLINE by primary group. For the offline total, see the sql module — the API can't count without loading everything.",
+      "labels": [
+        "group"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/luckperms/LuckPermsCollector.java"
+    },
+    {
+      "name": "mc_permission_tracks",
+      "type": "gauge",
+      "help": "Declared promotion tracks.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/luckperms/LuckPermsCollector.java"
+    },
+    {
+      "name": "mc_permission_users",
+      "type": "gauge",
+      "help": "Users known to LuckPerms. Scans the table: collected in the background.",
+      "labels": [],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/luckperms/LuckPermsCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "LuckPermsCollector",
+    "name": "luckperms",
+    "source": "LuckPerms",
+    "background": true,
+    "interval": 300,
+    "text": "The LuckPerms collector.\n\nBackgrounded, for a single metric: `getUniqueUsers()` scans the whole user table. Groups are already in memory and cost nothing — but splitting would mean two collectors for one subject, and being five minutes behind on an account count never changed a decision.\n\nGroup membership only counts online players, and that's deliberate: the API has no way to count a group's members without loading every user, one by one, from the database. The overall count is a single SQL query on `luckperms_user_permissions` — that's the sql module's job, not this one's."
+  }
+}

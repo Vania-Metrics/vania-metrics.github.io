@@ -1,0 +1,26 @@
+{
+  "repo": "core",
+  "workflow": "platforms",
+  "run_id": 35908595582,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/core/actions/runs/35908595582",
+  "event": "workflow_dispatch",
+  "branch": "main",
+  "sha": "90a3128b8919d8f499595d257f52f6875880466e",
+  "result": "success",
+  "finished": "2026-09-23T19:43:58Z",
+  "cells": {
+    "bukkit": "passed",
+    "bungeecord": "passed",
+    "folia": "passed",
+    "geyser": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed",
+    "sponge": "passed",
+    "sponge-1.21.11-rc": "passed",
+    "velocity-3.5.1": "passed",
+    "velocity-4.2.1": "passed",
+    "waterfall": "passed"
+  }
+}

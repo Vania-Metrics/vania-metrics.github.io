@@ -1,0 +1,24 @@
+{
+  "repo": "collector-spark",
+  "workflow": "ci",
+  "run_id": 35981350589,
+  "run_attempt": 1,
+  "url": "https://github.com/Vania-Metrics/collector-spark/actions/runs/35981350589",
+  "event": "push",
+  "branch": "main",
+  "sha": "10fd9c3f79d704ff0536e6110ff79390f0f64a9a",
+  "result": "success",
+  "finished": "2026-09-24T09:36:07Z",
+  "cells": {
+    "bukkit": "passed",
+    "bungeecord": "passed",
+    "folia": "passed",
+    "paper": "passed",
+    "purpur": "passed",
+    "spigot": "passed",
+    "velocity-3.5.1": "passed",
+    "velocity-4.2.1": "passed",
+    "waterfall": "passed"
+  },
+  "runtime": "java21"
+}

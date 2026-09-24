@@ -1,0 +1,44 @@
+{
+  "metrics": [
+    {
+      "name": "mc_economy_flow_total",
+      "type": "counter",
+      "help": "Amounts moved, as absolute values. direction = in|out. The ratio of the two tells whether the economy is creating or destroying currency.",
+      "labels": [
+        "currency",
+        "direction"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/excellenteconomy/EconomyCollector.java"
+    },
+    {
+      "name": "mc_economy_player_balance",
+      "type": "gauge",
+      "help": "Balance of an online player. Updated by event, so accurate to the second — no database reads.",
+      "labels": [
+        "player",
+        "uuid",
+        "currency"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/excellenteconomy/EconomyCollector.java"
+    },
+    {
+      "name": "mc_economy_transactions_total",
+      "type": "counter",
+      "help": "Account movements. type = deposit|withdraw.",
+      "labels": [
+        "currency",
+        "type"
+      ],
+      "source": "src/main/java/fr/samflix/vaniametrics/module/excellenteconomy/EconomyCollector.java"
+    }
+  ],
+  "config": [],
+  "collector": {
+    "class": "EconomyCollector",
+    "name": "economy",
+    "source": "ExcellentEconomy",
+    "background": false,
+    "interval": null,
+    "text": "ExcellentEconomy's multi-currency economy — by events, and by REFLECTION.\n\nCOMPLEMENTS the `essentials` module, which gives the TOTAL in circulation by reading EssentialsX's already-computed cache. This one gives the MOVEMENT: who earns, who spends, how much, in which currency. A total that doesn't move and a heavy flow don't describe the same economy, and neither metric replaces the other.\n\nWHY REFLECTION HERE, AND NOWHERE ELSE. ExcellentEconomy is compiled as **class 69, i.e. Java 25** — verified in its jar. A javac targeting Java 21 refuses to READ such a file, even for a plain signature:\n\n<pre> bad class file: ExcellentEconomy-2.8.0.jar(…/ChangeBalanceEvent.class) class file has wrong version 69.0, should be 65.0 </pre>\n\nThe two clean options were compiling this module with `--release 25`, which forces a JDK 25 to build the whole repo, or dropping it. Reflection is the third path: the module stays compilable on the repo's JDK 21, and `registerEvent` accepts a class obtained at runtime. The cost is that a signature change on NightExpress's side won't show up at compile time — it will show up at startup, as a warning, and the module will stay silent instead of failing to build."
+  }
+}
