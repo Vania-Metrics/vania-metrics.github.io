@@ -1,0 +1,5 @@
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+# The data branch, checked out here to build: see scripts/fetch-data.sh.
+data/

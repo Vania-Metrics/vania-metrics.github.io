@@ -1,0 +1,16 @@
+{
+  "name": "vania-metrics-site",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.3.1",
+  "scripts": {
+    "data": "sh scripts/fetch-data.sh",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.5.13"
+  }
+}
