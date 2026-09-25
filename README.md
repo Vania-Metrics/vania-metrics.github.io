@@ -1,3 +1,5 @@
+<img src="icon.png" alt="" width="96" align="right">
+
 # vania-metrics.github.io
 
 The VaniaMetrics site: https://vania-metrics.github.io. Getting started, configuration, the
