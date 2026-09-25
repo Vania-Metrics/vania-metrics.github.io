@@ -1,14 +1,14 @@
 {
   "repo": "collector-nova",
   "workflow": "ci",
-  "run_id": 36123130786,
+  "run_id": 36130084556,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-nova/actions/runs/36123130786",
+  "url": "https://github.com/Vania-Metrics/collector-nova/actions/runs/36130084556",
   "event": "push",
   "branch": "main",
-  "sha": "1fdf005a66ce2f5126248e10da6238facad8f24e",
+  "sha": "ad2828f11addd421b055c372f24bfebaa487a825",
   "result": "success",
-  "finished": "2026-09-25T10:21:56Z",
+  "finished": "2026-09-25T11:38:20Z",
   "cells": {
     "paper": "passed",
     "purpur": "passed"
