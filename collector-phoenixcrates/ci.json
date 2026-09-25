@@ -1,14 +1,14 @@
 {
   "repo": "collector-phoenixcrates",
   "workflow": "ci",
-  "run_id": 36123136549,
+  "run_id": 36130093384,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-phoenixcrates/actions/runs/36123136549",
+  "url": "https://github.com/Vania-Metrics/collector-phoenixcrates/actions/runs/36130093384",
   "event": "push",
   "branch": "main",
-  "sha": "68eb323200ed6abac972321c5cfcb621131a46b6",
+  "sha": "89db54d9062afbb1a6d95b62a85c86828b904989",
   "result": "success",
-  "finished": "2026-09-25T10:24:10Z",
+  "finished": "2026-09-25T11:40:15Z",
   "cells": {
     "folia": "passed",
     "paper": "passed",
