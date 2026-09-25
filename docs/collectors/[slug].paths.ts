@@ -39,7 +39,7 @@ function page(c: Collector, coreVersion: string) {
   w()
   w(`- **Target plugin:** ${target} **${safe(c.compiled)}** — latest for Minecraft ${safe(c.minecraft)}: ${safe(c.latest || '?')}`)
   w(`- **Built against:** core ${safe(c.core)}${c.coreBehind ? ` (current: ${coreVersion})` : ''}`)
-  w(`- **Download:** [${c.jar}](${c.release}), with its SHA-512, from the v${c.version} release (the repositories are private for now: members only)`)
+  w(`- **Download:** [${c.jar}](${c.release}), with its SHA-512, from the v${c.version} release`)
   w(`- **Collects:** ${c.background
     ? `in the background, every ${c.interval ?? 'few'} s — reading the plugin's state never blocks a scrape`
     : 'on events, as they happen'}`)
