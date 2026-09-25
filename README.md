@@ -22,3 +22,7 @@ pnpm data      # checks out the data branch into data/
 pnpm dev       # http://localhost:5173
 pnpm build     # docs/.vitepress/dist
 ```
+
+## License
+
+[GNU General Public License v3.0](LICENSE).
