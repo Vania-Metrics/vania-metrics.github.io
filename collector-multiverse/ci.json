@@ -1,14 +1,14 @@
 {
   "repo": "collector-multiverse",
   "workflow": "ci",
-  "run_id": 36123119786,
+  "run_id": 36130068443,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-multiverse/actions/runs/36123119786",
+  "url": "https://github.com/Vania-Metrics/collector-multiverse/actions/runs/36130068443",
   "event": "push",
   "branch": "main",
-  "sha": "917c02b7afdbbefd854322916404c954aef35468",
+  "sha": "cac287b0c8560ccfb5e201847727a92a08c85023",
   "result": "success",
-  "finished": "2026-09-25T10:20:37Z",
+  "finished": "2026-09-25T11:37:17Z",
   "cells": {
     "bukkit": "passed",
     "paper": "passed",
