@@ -1,14 +1,14 @@
 {
   "repo": "collector-mvportals",
   "workflow": "ci",
-  "run_id": 35981330702,
+  "run_id": 36123124967,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-mvportals/actions/runs/35981330702",
+  "url": "https://github.com/Vania-Metrics/collector-mvportals/actions/runs/36123124967",
   "event": "push",
   "branch": "main",
-  "sha": "71128b363e3d8d9491005f86defb90d91f3bcec0",
+  "sha": "ef2108075321a49a29b1b7a8842b7aee9474392b",
   "result": "success",
-  "finished": "2026-09-24T09:31:19Z",
+  "finished": "2026-09-25T10:20:57Z",
   "cells": {
     "bukkit": "passed",
     "paper": "passed",
