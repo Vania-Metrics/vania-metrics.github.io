@@ -1,14 +1,14 @@
 {
   "repo": "collector-mythicmobs",
   "workflow": "ci",
-  "run_id": 36130080614,
+  "run_id": 36191392277,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-mythicmobs/actions/runs/36130080614",
+  "url": "https://github.com/Vania-Metrics/collector-mythicmobs/actions/runs/36191392277",
   "event": "push",
   "branch": "main",
-  "sha": "aa81d543ee61e9fda79ec7886bb369065e0aa1ce",
+  "sha": "5bab2fc49262a0b1578389a67855c966beae2c9b",
   "result": "success",
-  "finished": "2026-09-25T11:37:26Z",
+  "finished": "2026-09-25T21:32:07Z",
   "cells": {
     "folia": "passed",
     "paper": "passed",
