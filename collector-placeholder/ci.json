@@ -1,14 +1,14 @@
 {
   "repo": "collector-placeholder",
   "workflow": "ci",
-  "run_id": 36123141299,
+  "run_id": 36130097744,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-placeholder/actions/runs/36123141299",
+  "url": "https://github.com/Vania-Metrics/collector-placeholder/actions/runs/36130097744",
   "event": "push",
   "branch": "main",
-  "sha": "c0a6b0635acf5175f193521e2773c8e45cc5d943",
+  "sha": "fd22254803270aa0b92ad75c0f767a184d5e8594",
   "result": "success",
-  "finished": "2026-09-25T10:22:02Z",
+  "finished": "2026-09-25T11:38:09Z",
   "cells": {
     "bukkit": "passed",
     "folia": "passed",
