@@ -1,14 +1,14 @@
 {
   "repo": "collector-luckperms",
   "workflow": "ci",
-  "run_id": 35981320852,
+  "run_id": 36123116911,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-luckperms/actions/runs/35981320852",
+  "url": "https://github.com/Vania-Metrics/collector-luckperms/actions/runs/36123116911",
   "event": "push",
   "branch": "main",
-  "sha": "6c2213e946f516a71247d3dfd6b9d51a67477d89",
+  "sha": "33a56737eb6cca558ba5d977883722e6ed725ac7",
   "result": "success",
-  "finished": "2026-09-24T09:36:40Z",
+  "finished": "2026-09-25T10:24:06Z",
   "cells": {
     "bukkit": "passed",
     "bungeecord": "passed",
