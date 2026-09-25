@@ -1,14 +1,14 @@
 {
   "repo": "collector-chunky",
   "workflow": "ci",
-  "run_id": 36122651385,
+  "run_id": 36130045414,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-chunky/actions/runs/36122651385",
+  "url": "https://github.com/Vania-Metrics/collector-chunky/actions/runs/36130045414",
   "event": "push",
   "branch": "main",
-  "sha": "1c6aa7f59b5da4c9f4c5953911bf732551abce4b",
+  "sha": "718eee4b0e6c119b30f32105f897b7bcc289a6bb",
   "result": "success",
-  "finished": "2026-09-25T10:15:56Z",
+  "finished": "2026-09-25T11:37:10Z",
   "cells": {
     "bukkit": "passed",
     "folia": "passed",
