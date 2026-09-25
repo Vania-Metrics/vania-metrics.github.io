@@ -1,14 +1,14 @@
 {
   "repo": "collector-grim",
   "workflow": "ci",
-  "run_id": 36130058499,
+  "run_id": 36191327158,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-grim/actions/runs/36130058499",
+  "url": "https://github.com/Vania-Metrics/collector-grim/actions/runs/36191327158",
   "event": "push",
   "branch": "main",
-  "sha": "a4666aaeb817cfc4b9f298ba8636abf4568ed099",
+  "sha": "b085fdeba9c1bb3b5a899b997f20a6f2dabb8042",
   "result": "success",
-  "finished": "2026-09-25T11:37:37Z",
+  "finished": "2026-09-25T21:31:46Z",
   "cells": {
     "bukkit": "passed",
     "folia": "passed",
