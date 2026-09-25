@@ -1,14 +1,14 @@
 {
   "repo": "collector-worldguard",
   "workflow": "ci",
-  "run_id": 35981353414,
+  "run_id": 36123146264,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-worldguard/actions/runs/35981353414",
+  "url": "https://github.com/Vania-Metrics/collector-worldguard/actions/runs/36123146264",
   "event": "push",
   "branch": "main",
-  "sha": "89a236a2dd020fe23a2e1c0b735ffca1d206b8f8",
+  "sha": "1b4d725b47121e0fe0b2b6a280e8435637576e3e",
   "result": "success",
-  "finished": "2026-09-24T09:34:15Z",
+  "finished": "2026-09-25T10:21:04Z",
   "cells": {
     "bukkit": "passed",
     "folia": "passed",
