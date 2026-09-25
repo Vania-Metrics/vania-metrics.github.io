@@ -19,6 +19,7 @@
       "source": "src/main/java/fr/samflix/vaniametrics/module/placeholder/PlaceholderCollector.java"
     }
   ],
+  "version": "0.6.0",
   "collector": {
     "class": "PlaceholderCollector",
     "name": "placeholder",

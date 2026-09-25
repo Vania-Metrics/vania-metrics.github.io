@@ -38,6 +38,7 @@
     }
   ],
   "config": [],
+  "version": "0.6.0",
   "collector": {
     "class": "ChunkyCollector",
     "name": "pregen",

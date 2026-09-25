@@ -33,6 +33,7 @@
     }
   ],
   "config": [],
+  "version": "0.6.0",
   "collector": {
     "class": "EconomyCollector",
     "name": "economy",

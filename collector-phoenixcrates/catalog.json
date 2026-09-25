@@ -244,6 +244,7 @@
       "source": "src/main/java/fr/samflix/vaniametrics/module/phoenixcrates/CratesCollector.java"
     }
   ],
+  "version": "0.6.0",
   "collector": {
     "class": "CratesCollector",
     "name": "crate",

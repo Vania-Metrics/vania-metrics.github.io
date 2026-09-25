@@ -69,6 +69,7 @@
     }
   ],
   "config": [],
+  "version": "0.6.0",
   "collector": {
     "class": "SparkCollector",
     "name": "spark",

@@ -30,6 +30,7 @@
       "source": "src/main/java/fr/samflix/vaniametrics/module/packetevents/PacketEventsCollector.java"
     }
   ],
+  "version": "0.6.0",
   "collector": {
     "class": "PacketEventsCollector",
     "name": "packets",

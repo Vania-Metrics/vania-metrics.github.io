@@ -18,6 +18,7 @@
     }
   ],
   "config": [],
+  "version": "0.6.0",
   "collector": {
     "class": "WorldGuardCollector",
     "name": "region",
