@@ -1,14 +1,14 @@
 {
   "repo": "collector-essentials",
   "workflow": "ci",
-  "run_id": 36123108767,
+  "run_id": 36130049841,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-essentials/actions/runs/36123108767",
+  "url": "https://github.com/Vania-Metrics/collector-essentials/actions/runs/36130049841",
   "event": "push",
   "branch": "main",
-  "sha": "df6b287649eec7bde371c4948009f873d831bf1c",
+  "sha": "9c40f7c33e022dcd4f4a1e827753296fcc89903a",
   "result": "success",
-  "finished": "2026-09-25T10:20:40Z",
+  "finished": "2026-09-25T11:36:49Z",
   "cells": {
     "bukkit": "passed",
     "paper": "passed",
