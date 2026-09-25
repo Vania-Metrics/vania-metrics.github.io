@@ -1,14 +1,14 @@
 {
   "repo": "core",
   "workflow": "build",
-  "run_id": 35996548213,
+  "run_id": 36123398061,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/core/actions/runs/35996548213",
-  "event": "workflow_dispatch",
+  "url": "https://github.com/Vania-Metrics/core/actions/runs/36123398061",
+  "event": "push",
   "branch": "main",
-  "sha": "71618832b1934ea7018db046761b4777db31f0f6",
+  "sha": "94450d0f89774cb8e43936804bc7f6678bb1db1d",
   "result": "success",
-  "finished": "2026-09-24T12:04:56Z",
+  "finished": "2026-09-25T10:23:20Z",
   "cells": {
     "paper": "passed"
   }
