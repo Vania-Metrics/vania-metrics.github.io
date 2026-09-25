@@ -1,14 +1,14 @@
 {
   "repo": "collector-packetevents",
   "workflow": "ci",
-  "run_id": 36123970428,
+  "run_id": 36130089495,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-packetevents/actions/runs/36123970428",
+  "url": "https://github.com/Vania-Metrics/collector-packetevents/actions/runs/36130089495",
   "event": "push",
   "branch": "main",
-  "sha": "58553c1cb5b2de8fa8a472b4b902c5a1f3335235",
+  "sha": "3edb379204e7cac585929f8cd839481407885ef7",
   "result": "success",
-  "finished": "2026-09-25T10:35:05Z",
+  "finished": "2026-09-25T11:41:01Z",
   "cells": {
     "bukkit": "passed",
     "bungeecord": "passed",
