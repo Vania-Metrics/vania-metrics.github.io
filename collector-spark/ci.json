@@ -1,14 +1,14 @@
 {
   "repo": "collector-spark",
   "workflow": "ci",
-  "run_id": 35981350589,
+  "run_id": 36123143076,
   "run_attempt": 1,
-  "url": "https://github.com/Vania-Metrics/collector-spark/actions/runs/35981350589",
+  "url": "https://github.com/Vania-Metrics/collector-spark/actions/runs/36123143076",
   "event": "push",
   "branch": "main",
-  "sha": "10fd9c3f79d704ff0536e6110ff79390f0f64a9a",
+  "sha": "b44ac34f1e8b3e57d88225e3b7e4e4049e01d299",
   "result": "success",
-  "finished": "2026-09-24T09:36:07Z",
+  "finished": "2026-09-25T10:25:18Z",
   "cells": {
     "bukkit": "passed",
     "bungeecord": "passed",
