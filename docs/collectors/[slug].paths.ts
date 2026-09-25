@@ -20,7 +20,7 @@ function page(c: Collector, coreVersion: string) {
 
   w(`# ${c.target}`)
   w()
-  const facts = [`[${c.repo}](${c.url})`, `registers as \`${c.name}\``]
+  const facts = [`[${c.repo}](${c.url})`, `version **${c.version}**`, `registers as \`${c.name}\``]
   if (ci) {
     facts.push(`<a href="${ci.url}"><Pill state="${runState(ci.result)}" label="CI ${ci.finished.slice(0, 10)}" /></a>`)
   }
@@ -39,6 +39,7 @@ function page(c: Collector, coreVersion: string) {
   w()
   w(`- **Target plugin:** ${target} **${safe(c.compiled)}** — latest for Minecraft ${safe(c.minecraft)}: ${safe(c.latest || '?')}`)
   w(`- **Built against:** core ${safe(c.core)}${c.coreBehind ? ` (current: ${coreVersion})` : ''}`)
+  w(`- **Download:** [${c.jar}](${c.release}), with its SHA-512, from the v${c.version} release (the repositories are private for now: members only)`)
   w(`- **Collects:** ${c.background
     ? `in the background, every ${c.interval ?? 'few'} s — reading the plugin's state never blocks a scrape`
     : 'on events, as they happen'}`)

@@ -35,6 +35,7 @@ export interface ConfigKey {
 }
 
 interface Catalog {
+  version?: string
   metrics: Metric[]
   config: ConfigKey[]
   collector?: {
@@ -79,7 +80,9 @@ export interface Collector {
   minecraft: string
   core: string
   coreBehind: boolean
+  version: string
   jar: string
+  release: string
   java: string | null
   ci: Run | null
   platforms: Cell[]
@@ -197,6 +200,8 @@ export function loadSite(): SiteData {
       const info = r.catalog.collector
       const compiled = bare(plugin['compiled-against'] ?? '?')
       const latest = bare(plugin['latest-for-minecraft'] ?? '')
+      // Its own version since release-please; before that, the core's it was built with.
+      const own = r.catalog.version ?? String(m.core ?? '').replace(/^v/, '')
       return {
         repo: r.id,
         slug: r.id.replace(/^collector-/, ''),
@@ -212,7 +217,9 @@ export function loadSite(): SiteData {
         minecraft: m.minecraft ?? '?',
         core: m.core ?? '?',
         coreBehind: m.core !== `v${version}`,
-        jar: `vania-metrics-${r.id}-${String(m.core ?? '').replace(/^v/, '')}.jar`,
+        version: own,
+        jar: `vania-metrics-${r.id}-${own}.jar`,
+        release: `${ORG_URL}/${r.id}/releases/tag/v${own}`,
         java: ci?.runtime?.replace(/^java/, '') ?? null,
         ci,
         platforms: PLATFORMS.map(({ id, name, kind }) => {

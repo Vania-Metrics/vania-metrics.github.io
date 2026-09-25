@@ -2,6 +2,7 @@
 import { data } from '../.vitepress/lib/site.data'
 
 const folder = { sponge: 'mods/', geyser: 'extensions/' }
+const luckperms = data.collectors.find((c) => c.slug === 'luckperms')
 </script>
 
 # Getting started
@@ -75,7 +76,7 @@ If you set a token (`http.token`), add it to the job:
 ## Add collectors
 
 Each collector is a separate jar that goes next to the core and next to the plugin it measures —
-say `vania-metrics-collector-luckperms-{{ data.version }}.jar` next to LuckPerms. It does nothing
+say `{{ luckperms.jar }}` next to LuckPerms. It does nothing
 without its target plugin, and never takes the core down with it.
 
 The [collectors overview](/collectors/) lists all of them; the
